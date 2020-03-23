@@ -23,12 +23,15 @@ int	get_next_line(char **line);
 /*
 ** parsing
 */
-int	ft_pars(char *line);
+int	ft_pars(char *line, t_data *pars);
 int	no_cmd(char *line);
 
 int	ft_echo(char *line);
 
 int	ft_pwd(void);
-void	ft_acces(void);
+void	ft_acces(t_data *pars);
+
+int	wrong_path(char *line);
+int	ft_cd(char *line, t_data *pars);
 
 #endif
