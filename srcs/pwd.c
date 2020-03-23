@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/23 14:08:44 by pmaldagu          #+#    #+#             */
-/*   Updated: 2020/03/23 18:30:12 by pmaldagu         ###   ########.fr       */
+/*   Created: 2020/03/23 18:07:44 by pmaldagu          #+#    #+#             */
+/*   Updated: 2020/03/23 18:31:36 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
-int main()
+void	ft_acces(void)
 {
-	char *line;
-	//t_data pars;
+	char buf[1001];
+	char *path;
 
-	while (1)
-	{
-		ft_acces();
-		//write(0, "> ", 2);
-		while(get_next_line(0, &line) != 1)
-		{		
-		}
-		if (ft_pars(line) == 7)
-			return (0);
-		//printf("cmd = %d\n", ft_pars(line));
-	}
-	return (0);
+	ft_bzero(buf, 1001);
+	path = getcwd(buf, 1000);
+	write(0, path, ft_strlen(path));
+	write(0, "> ", 2);
+}
+
+int	ft_pwd(void)
+{
+	char buf[1001];
+	char *path;
+
+	ft_bzero(buf, 1001);
+	path = getcwd(buf, 1000);
+	write(0, path, ft_strlen(path));
+	write(0, "\n", 1);
+	return (1);
 }

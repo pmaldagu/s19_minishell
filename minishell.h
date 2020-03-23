@@ -28,4 +28,7 @@ int	no_cmd(char *line);
 
 int	ft_echo(char *line);
 
+int	ft_pwd(void);
+void	ft_acces(void);
+
 #endif
