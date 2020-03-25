@@ -26,7 +26,8 @@ int	get_next_line(char **line);
 int	ft_pars(char *line, t_data *pars, char **envp);
 int	no_cmd(char *line);
 
-int	ft_echo(char *line);
+int	ft_echo(char *line, char **envp);
+int	echo_env(char *line, char **envp);
 
 int	ft_pwd(t_data *line);
 void	ft_acces(t_data *pars);

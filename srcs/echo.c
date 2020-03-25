@@ -6,13 +6,34 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/23 15:30:58 by pmaldagu          #+#    #+#             */
-/*   Updated: 2020/03/23 18:03:50 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2020/03/25 15:02:38 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int	ft_echo(char *line)
+int	echo_env(char *line, char **envp)
+{
+	int i;
+	size_t j;
+	char *keyword;
+
+	i = 1;
+	while (ft_isalpha(line[i]))
+	{
+		ft_toupper(line[i]);
+		i++;
+	}
+	keyword = ft_substr(line, 1, i - 1);
+	i = 0;
+	while (ft_strncmp(keyword, envp[i], ft_strlen(keyword)))
+		i++;
+	j = ft_strlen(keyword) + 1;
+	write(1, &envp[i][j], ft_strlen(&envp[i][j]));
+	return (j);
+}
+
+int	ft_echo(char *line, char **envp)
 {
 	int i;
 	char a;
@@ -25,14 +46,13 @@ int	ft_echo(char *line)
 		i++;
 	while (line[i] && line[i] != '|')
 	{
-		if (line[i] == '-' && line[i + 2] == 32)
+		if (!(ft_strncmp(&line[i], "-n ", 3)))
 		{
-			if (!(ft_strncmp(&line[i], "-n", 2)))
-			{
-				a = '\r';
-				i += 2;
-			}
+			a = '\r';
+			i += 2;
 		}
+		if (line[i] == '$')
+			i += echo_env(&line[i], envp);
 		write(0, &line[i], 1);
 		i++;
 	}

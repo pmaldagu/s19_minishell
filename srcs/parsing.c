@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/23 14:15:12 by pmaldagu          #+#    #+#             */
-/*   Updated: 2020/03/25 13:44:29 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2020/03/25 14:56:48 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_pars(char *line, t_data *pars, char **envp)
 		j++;
 	}
 	if (!(ft_strncmp(&line[i], "echo", 4)))
-		return (ft_echo(&line[i]));
+		return (ft_echo(&line[i], envp));
 	else if (!(ft_strncmp(&line[i], "cd", 2)))
 		return (ft_cd(&line[i], pars));
 	else if (!(ft_strncmp(&line[i], "pwd", 3)))
