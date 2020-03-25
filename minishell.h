@@ -36,4 +36,6 @@ int	ft_cd(char *line, t_data *pars);
 int	cd_back(char *line, t_data *pars);
 void	remove_dir(t_data *pars);
 
+void	banner(void);
+
 #endif
