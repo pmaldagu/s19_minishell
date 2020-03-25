@@ -23,7 +23,7 @@ int	get_next_line(char **line);
 /*
 ** parsing
 */
-int	ft_pars(char *line, t_data *pars);
+int	ft_pars(char *line, t_data *pars, char **envp);
 int	no_cmd(char *line);
 
 int	ft_echo(char *line);
@@ -37,5 +37,7 @@ int	cd_back(char *line, t_data *pars);
 void	remove_dir(t_data *pars);
 
 void	banner(void);
+
+int	ft_env(char **envp);
 
 #endif

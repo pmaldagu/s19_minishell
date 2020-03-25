@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/23 14:15:12 by pmaldagu          #+#    #+#             */
-/*   Updated: 2020/03/25 09:54:29 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2020/03/25 13:44:29 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	no_cmd(char *line)
 	return (0);
 }
 
-int	ft_pars(char *line, t_data *pars)
+int	ft_pars(char *line, t_data *pars, char **envp)
 {
 	int i;
 	int j;
@@ -52,7 +52,7 @@ int	ft_pars(char *line, t_data *pars)
 	else if (!(ft_strncmp(&line[i], "unset", 5)))
 		return (5);
 	else if (!(ft_strncmp(&line[i], "env", 3)))
-		return (6);
+		return (ft_env(envp));
 	else if (!(ft_strncmp(&line[i], "exit", 4)))
 		return (7);
 	else
