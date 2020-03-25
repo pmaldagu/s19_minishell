@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/23 18:44:23 by pmaldagu          #+#    #+#             */
-/*   Updated: 2020/03/25 10:13:08 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2020/03/25 10:21:53 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	ft_cd(char *line, t_data *pars)
 	if (!(ft_strncmp(&line[i], "./", 2)))
 		i += 2;
 	else if (!(ft_strncmp(&line[i], "..", 2)))
-		i += cd_back(&line[i], pars) + 1;
+		i += cd_back(&line[i], pars);
 	if (ft_isalpha(line[i]))
 	{
 		pars->path = ft_strjoin(pars->path, "/");
