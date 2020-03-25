@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/23 14:15:12 by pmaldagu          #+#    #+#             */
-/*   Updated: 2020/03/23 19:07:27 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2020/03/25 09:54:29 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	no_cmd(char *line)
 	int i;
 
 	i = 0;
-	write (0, "minishell: command not found: ", 30);
+	write (1, "minishell: command not found: ", 30);
 	while (ft_isalpha(line[i]))
 	{
 		write(0, &line[i], 1);
@@ -46,7 +46,7 @@ int	ft_pars(char *line, t_data *pars)
 	else if (!(ft_strncmp(&line[i], "cd", 2)))
 		return (ft_cd(&line[i], pars));
 	else if (!(ft_strncmp(&line[i], "pwd", 3)))
-		return (ft_pwd());
+		return (ft_pwd(pars));
 	else if (!(ft_strncmp(&line[i], "export", 6)))
 		return (4);
 	else if (!(ft_strncmp(&line[i], "unset", 5)))

@@ -28,10 +28,12 @@ int	no_cmd(char *line);
 
 int	ft_echo(char *line);
 
-int	ft_pwd(void);
+int	ft_pwd(t_data *line);
 void	ft_acces(t_data *pars);
 
 int	wrong_path(char *line);
 int	ft_cd(char *line, t_data *pars);
+int	cd_back(char *line, t_data *pars);
+void	remove_dir(t_data *pars);
 
 #endif
