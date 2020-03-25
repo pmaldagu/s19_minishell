@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/23 18:07:44 by pmaldagu          #+#    #+#             */
-/*   Updated: 2020/03/25 16:02:54 by pmaldagu         ###   ########.fr       */
+/*   Created: 2020/03/25 15:11:14 by pmaldagu          #+#    #+#             */
+/*   Updated: 2020/03/25 16:08:34 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void	ft_acces(t_data *pars)
+int ft_export(char *line, char **envp)
 {
-	char buf[1001];
+	(void)line;
+	(void)envp;
+	//char *lastl;
+	int i;
 
-	ft_bzero(buf, 1001);
-	pars->path = ft_strdup(getcwd(buf, 1000));
-	write(1, pars->path, ft_strlen(pars->path));
-	write(1, "\n> ", 3);
-}
-
-int	ft_pwd(t_data *pars)
-{
-	write(1, pars->path, ft_strlen(pars->path));
-	write(1, "\n", 1);
-	return (1);
+	i = 0;
+	return (0);
 }

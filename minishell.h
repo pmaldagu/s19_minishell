@@ -8,11 +8,9 @@
 
 typedef struct	s_data
 {
-	char	*cmd;
-	char	*opt;
+	char	*logname;
 	char	*path;
 	char	*result;
-	char	pipe;
 }		t_data;
 /*
 ** gnl
@@ -38,7 +36,10 @@ int	cd_back(char *line, t_data *pars);
 void	remove_dir(t_data *pars);
 
 void	banner(void);
+void	logname(char **envp);
 
 int	ft_env(char **envp);
+
+int	ft_export(char *line, char **envp);
 
 #endif
