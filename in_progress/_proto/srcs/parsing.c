@@ -6,7 +6,7 @@
 /*   By: pmaldagu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/23 14:15:12 by pmaldagu          #+#    #+#             */
-/*   Updated: 2020/03/25 14:56:48 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2020/03/25 16:57:23 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_pars(char *line, t_data *pars, char **envp)
 	else if (!(ft_strncmp(&line[i], "pwd", 3)))
 		return (ft_pwd(pars));
 	else if (!(ft_strncmp(&line[i], "export", 6)))
-		return (4);
+		return (ft_export(line, envp));
 	else if (!(ft_strncmp(&line[i], "unset", 5)))
 		return (5);
 	else if (!(ft_strncmp(&line[i], "env", 3)))
