@@ -8,7 +8,7 @@
 #
 
 # Note that spaces cannot be used around the = assignment operator
-whom_variable="World"
+whomvariable="World"
 
 echo
 echo =================
@@ -18,7 +18,7 @@ echo
 
 echo WEAK :
 # Use printf to safely output the data
-echo "Hello, $whom_variable"
+echo "Hello, $whomvariable"
 #> Hello, World
 echo
 
@@ -28,7 +28,7 @@ echo
 
 echo STRONG :
 #vs
-echo 'Hello, $whom_variable'
+echo 'Hello, $whomvariable'
 #> Hello, $whom_variable
 echo
 

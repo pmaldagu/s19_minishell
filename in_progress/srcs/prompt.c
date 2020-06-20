@@ -6,7 +6,7 @@
 /*   By: agossuin <agossuin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/09 16:30:14 by agossuin          #+#    #+#             */
-/*   Updated: 2020/06/10 12:17:41 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2020/06/20 16:49:06 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 ** Free the args and reset all to the default values.
 ** Also sets the value of '$?' and 'PWD' (this is where i use the get_cwd).
 */
+
+extern char *pwd;
 
 void	ft_reset_cmd(t_cmd *cmd)
 {
@@ -115,7 +117,7 @@ void	ft_parsing_cmd(t_cmd *cmd)
 {
 	while (ft_isspace(cmd->line[cmd->i]))
 		cmd->i++;
-	if (cmd->line[cmd->i] == '\0' || cmd->cmd == EXIT)
+	if (cmd->line[cmd->i] == '\0' || cmd->cmd == EXIT || cmd->line[cmd->i] == '#')
 		return (apply_cmd(cmd));
 	else if (cmd->line[cmd->i] == ';' && cmd->i++)
 		apply_cmd(cmd);
@@ -148,22 +150,40 @@ void	ft_parsing_cmd(t_cmd *cmd)
 
 void int_handler(int sig)
 {
-	signal(sig, SIG_IGN);
+	//int *ret;
+	char pwd[41];
+
+	//*ret = 1;
+	//ft_bzero(pwd, ft_strlen(pwd));
+	//getcwd(pwd, 40);
+	printf("pwd == %s", getcwd(pwd, 40));
+	if (sig == SIGINT)
+	{
+		//getcwd(pwd, 40);
+		//write(1, pwd, ft_strlen(pwd));
+		//write(1, "\nokminishell $ ", 14);
+		//return (ret);
+	}
 }
 
 int		ft_prompt(char *name, t_cmd *cmd)
 {
-	ft_pwd(cmd, 1);
-	ft_putstr_fd(name, 1);
+	//ft_pwd(cmd, 1);
+	//ft_putstr_fd(name, 1);
+	//signal(SIGINT, int_handler);
 	while (1)
 	{		
-		get_next_line(0, &(cmd->line));
+		if(!get_next_line(0, &(cmd->line)))
+		{
+			write(1, "exit", 4);
+			break;
+		}
 		ft_parsing_cmd(cmd);
 		// write(1, "\n", 1);
 		if (cmd->cmd == EXIT)
 			break ;
-		ft_pwd(cmd, 1);
-		ft_putstr_fd(name, 1);
+		//ft_pwd(cmd, 1);
+		//ft_putstr_fd(name, 1);
 		free(cmd->line);
 		cmd->line = NULL;
 		cmd->i = 0;

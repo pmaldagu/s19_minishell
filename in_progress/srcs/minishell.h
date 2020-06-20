@@ -6,7 +6,7 @@
 /*   By: agossuin <agossuin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/09 16:30:06 by agossuin          #+#    #+#             */
-/*   Updated: 2020/04/09 17:36:49 by agossuin         ###   ########.fr       */
+/*   Updated: 2020/06/17 16:52:59 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,8 @@ void			ft_reset_cmd(t_cmd *cmd);
 void			ft_puterror(t_cmd *cmd);
 void			apply_cmd(t_cmd *cmd);
 void			ft_parsing_cmd(t_cmd *cmd);
-int				ft_prompt(char *name, t_cmd *cmd);
+int			ft_prompt(char *name, t_cmd *cmd);
+void			int_handler(int sig);
+
 
 #endif

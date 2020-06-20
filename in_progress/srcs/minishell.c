@@ -6,7 +6,7 @@
 /*   By: agossuin <agossuin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/09 16:30:02 by agossuin          #+#    #+#             */
-/*   Updated: 2020/06/10 12:13:49 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2020/06/20 16:50:21 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*
 ** This is just too beautiful.
 */
+char *pwd = NULL;
 
 void	banner(void)
 {
@@ -53,15 +54,15 @@ int		main(int argc, char const *argv[], char **envp)
 {
 	t_cmd	*cmd;
 
-	signal(SIGINT, SIG_IGN); //ignore(SIG_IN) le signal d'interruption(SIGINT)
-	signal(SIGQUIT, SIG_IGN);
+	//signal(SIGQUIT, SIG_IGN);
+	//signal(SIGINT, int_handler);
 	if (!(cmd = (t_cmd*)malloc(sizeof(t_cmd))))
 		return (MALLOC_FAIL);
 	ft_bzero(cmd, sizeof(t_cmd));
 	cmd->env = (t_list *)ft_lstenv(envp);
 	cmd->vars = ft_lstnew(NULL);
 	cmd->fd_output = 1;
-	banner();
+	//banner();
 	ft_prompt("minishell $ ", cmd);
 	ft_lstclear(&(cmd->env), free);
 	ft_lstclear(&(cmd->vars), free);

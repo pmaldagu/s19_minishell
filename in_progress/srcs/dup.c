@@ -6,7 +6,7 @@
 /*   By: agossuin <agossuin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/09 16:29:44 by agossuin          #+#    #+#             */
-/*   Updated: 2020/04/09 16:38:23 by agossuin         ###   ########.fr       */
+/*   Updated: 2020/06/20 17:00:19 by pmaldagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,17 @@ char	*ft_vardup(char *str, t_list *list, unsigned int size)
 	char *dup;
 
 	dup = NULL;
+	//printf("content == %s\n", list->content);
 	while (list)
 	{
 		if (list->content && !ft_strncmp(list->content, str, size))
+		{
+			//write(1, "ok\n", 3);
 			return (ft_strdup(&(((char*)list->content)[size + 1])));
+		}
 		list = list->next;
 	}
-	return (dup);
+	return (ft_strdup(""));
 }
 
 /*
@@ -46,7 +50,8 @@ char	*ft_translate(t_cmd *cmd)
 		cmd->i++;
 	while (ft_isalnum(cmd->line[cmd->i + size]))
 		size++;
-	if (!(res = ft_vardup(&(cmd->line[cmd->i]), cmd->env, size)))
+	res = ft_vardup(&(cmd->line[cmd->i]), cmd->env, size);
+	if (res[0] == 0)
 		res = ft_vardup(&(cmd->line[cmd->i]), cmd->vars, size);
 	if (res)
 		cmd->i += size;

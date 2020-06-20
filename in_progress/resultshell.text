@@ -1,0 +1,48 @@
+
+=================
+testing variables
+=================
+
+WEAK :
+Hello, World
+
+STRONG :
+Hello, $whomvariable
+
+
+====================
+unexisting variables
+====================
+
+Hello, myself.
+You are myselfing.
+You are ing.
+You are ${test}ing.
+
+
+===================
+using the backslash
+===================
+
+NONE, STRONG, WEAK :
+hello"`'\
+\h\e\l\l\o\"\`\
+\h\e\l\l\o"`\
+
+NONE, STRONG, WEAK :
+hello "
+hello \" 
+hello " 
+
+
+===========
+testing pwd
+===========
+
+/Users/pmaldagu/Github/s19_minishell/in_progress
+/Users/pmaldagu/Github/s19_minishell
+/Users/pmaldagu/Github/s19_minishell/in_progress
+/Users/pmaldagu
+/Users/pmaldagu/Github/s19_minishell/in_progress
+/Users/pmaldagu
+/Users/pmaldagu/Github/s19_minishell/in_progress
