@@ -6,7 +6,7 @@
 /*   By: agossuin <agossuin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/09 16:30:14 by agossuin          #+#    #+#             */
-/*   Updated: 2020/06/20 16:49:06 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2020/09/08 16:57:53 by pmaldag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,8 +182,8 @@ int		ft_prompt(char *name, t_cmd *cmd)
 		// write(1, "\n", 1);
 		if (cmd->cmd == EXIT)
 			break ;
-		//ft_pwd(cmd, 1);
-		//ft_putstr_fd(name, 1);
+		ft_pwd(cmd, 1);
+		ft_putstr_fd(name, 1);
 		free(cmd->line);
 		cmd->line = NULL;
 		cmd->i = 0;

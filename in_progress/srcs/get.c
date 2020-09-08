@@ -6,7 +6,7 @@
 /*   By: agossuin <agossuin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/09 16:29:25 by agossuin          #+#    #+#             */
-/*   Updated: 2020/04/09 16:45:35 by agossuin         ###   ########.fr       */
+/*   Updated: 2020/09/08 17:46:00 by pmaldag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_get_echo(t_cmd *cmd)
 	while (cmd->line[cmd->i] && ft_isspace(cmd->line[cmd->i]))
 		cmd->i++;
 	if (!ft_strncmp(&(cmd->line[cmd->i]), "-n", 2)
-		&& ft_isspace(cmd->line[cmd->i + 2]))
+		&& (ft_isspace(cmd->line[cmd->i + 2]) || !cmd->line[cmd->i +2]))
 	{
 		cmd->cmd = ECHON;
 		cmd->i += 2;

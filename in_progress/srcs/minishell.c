@@ -6,7 +6,7 @@
 /*   By: agossuin <agossuin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/09 16:30:02 by agossuin          #+#    #+#             */
-/*   Updated: 2020/06/20 16:50:21 by pmaldagu         ###   ########.fr       */
+/*   Updated: 2020/09/08 17:33:57 by pmaldag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,15 @@ int		main(int argc, char const *argv[], char **envp)
 	cmd->vars = ft_lstnew(NULL);
 	cmd->fd_output = 1;
 	//banner();
-	ft_prompt("minishell $ ", cmd);
+	if (argc == 3 && !ft_strncmp("-c", argv[1], 3))
+	{
+		cmd->line = ft_strdup(argv[2]);
+		ft_parsing_cmd(cmd);
+		free(cmd->line);
+		cmd->line = NULL;
+	} 
+	else	
+		ft_prompt("minishell $ ", cmd);
 	ft_lstclear(&(cmd->env), free);
 	ft_lstclear(&(cmd->vars), free);
 	free(cmd);
